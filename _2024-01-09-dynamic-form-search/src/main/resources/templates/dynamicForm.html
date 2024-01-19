@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Form</title>
+</head>
+<body>
+
+<table>
+    <tr th:each="forms, formsStat : ${section}">
+        <td>
+            <span th:text="|Form-${formsStat.index}|"></span>
+            <table>
+                <tr th:each="form, formStat : ${forms}">
+                    <td th:if="${form instanceof T(com.jaystar.dto.MyProfileForm)}">
+                        <table>
+                            <tr>
+                                <td>
+                                    <span>Name:</span>
+                                    <span th:text="${form.name}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Phone Number:</span>
+                                    <span th:text="${form.phoneNumber}"></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+
+                    <td th:if="${form instanceof T(com.jaystar.dto.MyOrderForm)}">
+                        <table>
+                            <tr>
+                                <td>
+                                    <span>Product Name:</span>
+                                    <span th:text="${form.productName}"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Quantity:</span>
+                                    <span th:text="${form.quantity}"></span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
