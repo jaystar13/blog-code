@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Form</title>
+</head>
+<body>
+
+<table>
+    <tr th:each="forms, formsStat : ${sections.sections}">
+        <td>
+            <span th:text="|Section-${forms.sectionName}"></span>
+            <table th:replace="~{|fragment/${forms.sectionName}| :: section(${forms.mySection})}"></table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
