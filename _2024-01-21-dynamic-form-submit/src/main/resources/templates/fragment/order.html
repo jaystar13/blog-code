@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table th:fragment="section(order)">
+    <tr th:each="form, formStat : ${order}">
+        <td>
+            <table>
+                <tr>
+                    <td>
+                        <span>Product Name:</span>
+                        <input type="text" th:value="${form.productName}"
+                               th:name="|orders[${formStat.index}].productName|">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Quantity:</span>
+                        <input type="number" th:value="${form.quantity}" th:name="|orders[${formStat.index}].quantity|">
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

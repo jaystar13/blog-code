@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Form</title>
+</head>
+<body>
+
+<form name="dynamicForm" action="/forms" method="post">
+    <table>
+        <tr th:each="section, sectionStat : ${sections.sections}">
+            <td>
+                <span th:text="|Section-${section.sectionItem.key}"></span>
+                <table th:replace="~{|fragment/${section.sectionItem.key}| :: section(${section.myForms.myForms})}"></table>
+            </td>
+        </tr>
+    </table>
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
