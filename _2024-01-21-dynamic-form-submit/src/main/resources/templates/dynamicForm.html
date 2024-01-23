@@ -10,7 +10,7 @@
     <table>
         <tr th:each="section, sectionStat : ${sections.sections}">
             <td>
-                <span th:text="|Section-${section.sectionItem.key}"></span>
+                <span th:text="|Section-${section.sectionItem.key}"> </span>
                 <table th:replace="~{|fragment/${section.sectionItem.key}| :: section(${section.myForms.myForms})}"></table>
             </td>
         </tr>
